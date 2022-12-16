@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>EvilOlive: A Coding Challenge</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <!-- DevIcons -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/site.css" />
+    <link rel="stylesheet" href="/css/prism.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+          <a class="navbar-brand" href="#"
+            ><img src="/img/EB_LogoWhite.png" height="30" />&nbsp;EvilOlive</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon-eb"
+              ><i class="bi bi-list"></i
+            ></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-end">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/app.html">The App</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/code.html">The Code</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">The Repo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Blog</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="content container">
+      <div class="row">
+        <h1 class="border-bottom border-2 border-danger">The Code</h1>
+        <!-- Code Editor -->
+        <div class="col-12 col-lg-8">
+          <pre class="line-numbers">
+                <code class="language-js">
+                  function checkPalindrome() {
+                    // set and clear initial class attributes
+                    document.getElementById("alert").classList.add("invisible");
+                    document.getElementById("alert").classList.remove("bg-success", "bg-warning");
+                  
+                    // get regex filtered input from user
+                    let word = document
+                      .getElementById("userString")
+                      .value.replace(/[^A-Z0-9]/gi, "")
+                      .toLowerCase();
+                  
+                    //make calls to reverse word and display results
+                    let revWord = reverseString(word);
+                    let palindromeObj = isPalindrome(word, revWord);
+                    displayResults(palindromeObj);
+                  }                               
+                </code>
+            </pre>
+        </div>
+        <!-- Code Docs -->
+        <div class="col-12 col-lg-4">
+          <p>The code is structured in four functions:</p>
+          <h5>checkPalindrome()</h5>
+          <p>
+            The main function that gets input and utilizes other functions as
+            helpers
+          </p>          
+        </div>
+        <p></p>
+        <p></p>
+        <hr/>
+        <!-- Code Editor -->
+        <div class="col-12 col-lg-8">
+          <pre class="line-numbers">
+                <code class="language-js">
+                  // string traversal with assignment to array to reverse
+                  function reverseString(argString) {
+                    let length = argString.length;
+                    let revString = [];
+                    for (let index = length - 1; index >= 0; index--) {
+                      revString += argString[index];
+                    }
+                    return revString;
+                  }                                
+                </code>
+            </pre>
+        </div>
+        <!-- Code Docs -->
+        <div class="col-12 col-lg-4">
+          <h5>reverseString(argString)</h5>
+          <p>
+            Reverses given argument utilizing a decremented for loop and
+            assignment to an array
+          </p>
+        </div>
+        <p></p>
+        <p></p>
+        <hr/>
+        <!-- Code Editor -->
+        <div class="col-12 col-lg-8">
+          <pre class="line-numbers">
+                <code class="language-js">
+                  
+                  function isPalindrome(argString, argRevString) {
+                    let returnObj = { reversed: argRevString };
+                    if (argString == argRevString) {
+                      returnObj.isPalindrome = true;
+                      returnObj.msg = "It is a palindrome.";
+                    } else {
+                      returnObj.isPalindrome = false;
+                      returnObj.msg = "It is not a palindrome.";
+                    }
+                    return returnObj;
+                  }                              
+                </code>
+            </pre>
+        </div>
+        <!-- Code Docs -->
+        <div class="col-12 col-lg-4">
+          <h5>isPalindrome(argString, argString)</h5>
+          <p>
+            Checks for two given arguments to be equal, one of the arguments
+            being reversed, and returns an object containing the reversed
+            string, a boolean showing if the word is a palindrome, and the
+            message reflecting the boolean state
+          </p>
+        </div>
+        <p></p>
+        <p></p>
+        <hr/>
+        <!-- Code Editor -->
+        <div class="col-12 col-lg-8">
+          <pre class="line-numbers">
+                <code class="language-js">
+                  function displayResults(palindromeObj) {
+                    document.getElementById(
+                      "msg"
+                    ).innerHTML = `Your string reversed is: &lt;strong&gt;${palindromeObj.reversed}&lt;/strong&gt;&lt;br/&gt;${palindromeObj.msg}`;
+                  
+                    // display alternate background depending on result and clear invisible
+                    if (palindromeObj.isPalindrome) {
+                      document.getElementById("alert").classList.remove("invisible");
+                      document.getElementById("alert").classList.add("bg-success");
+                    } else {
+                      document.getElementById("alert").classList.remove("invisible");
+                      document.getElementById("alert").classList.add("bg-warning");
+                    }
+                  }
+                                                        
+                </code>
+            </pre>
+        </div>
+        <!-- Code Docs -->
+        <div class="col-12 col-lg-4">
+          <h5>displayResults(argObject)</h5>
+          <p>
+            Displays .msg property of argObject as formatted output dependent on
+            state of boolean property .isPalindrome
+          </p>
+        </div>
+        <p></p>
+        <p></p>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer container-fluid py-3">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-lg-3 align-items-center">
+          <div class="col text-center text-start text-lg-start">
+            &copy;2022 Elwin Beall
+          </div>
+          <div class="col text-center">
+            <img src="/img/EB_LogoWhite.png" height="24" />
+          </div>
+          <div class="col text-center text-lg-end">
+            <a href="#"><i class="bi bi-linkedin socialIcons"></i></a>
+            <a href="#"><i class="bi bi-twitter socialIcons"></i></a>
+            <a href="#"><i class="bi bi-github socialIcons"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <!-- -->
+    <script src="/js/prism.js">
+      Prism.plugins.NormalizeWhitespace.setDefaults({
+              'remove-trailing': true,
+              'remove-indent': true,
+              'left-trim': true,
+              'right-trim': true
+          })
+    </script>
+  </body>
+</html>
